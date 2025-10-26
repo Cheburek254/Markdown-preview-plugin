@@ -1,0 +1,68 @@
+{
+  "name": "markdown-preview-plus",
+  "displayName": "Markdown Preview Plus",
+  "description": "Enhanced Markdown preview with syntax help",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:markdown-preview-plus.showPreview",
+    "onCommand:markdown-preview-plus.showHelp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdown-preview-plus.showPreview",
+        "title": "Show Markdown Preview",
+        "category": "Markdown"
+      },
+      {
+        "command": "markdown-preview-plus.showHelp",
+        "title": "Show Markdown Help",
+        "category": "Markdown"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "markdown-preview-plus.showPreview",
+        "key": "ctrl+shift+m",
+        "mac": "cmd+shift+m"
+      },
+      {
+        "command": "markdown-preview-plus.showHelp",
+        "key": "ctrl+shift+h",
+        "mac": "cmd+shift+h"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "markdown-preview-plus.showPreview",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        },
+        {
+          "command": "markdown-preview-plus.showHelp",
+          "when": "editorLangId == markdown",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
